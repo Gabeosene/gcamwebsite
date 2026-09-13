@@ -1,6 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0A0E14;
+  --color-bg-panel: #12161F;
+  --color-accent: #00F0FF;
+  --color-accent-cyan: #00F0FF;
+  --color-accent-lime: #D4FF00;
+  --color-alert: #FF3E3E;
+  --color-ink: #F5F5F5;
+  --color-ink-muted: #8A93A3;
+
+  --font-heading: "Space Grotesk", "Rajdhani", sans-serif;
+  --font-body: Inter, sans-serif;
+}
 
 @layer base {
   body {
