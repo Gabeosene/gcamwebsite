@@ -11,5 +11,8 @@ node_modules/
 .env
 .env.production
 
+# Netlify
+.netlify/
+
 # macOS-specific files
 .DS_Store
