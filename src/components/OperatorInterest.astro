@@ -60,6 +60,68 @@
     </button>
     <p class="form-status text-sm" role="status" aria-live="polite"></p>
   </form>
+<div id="for-tracks" class="p-6 sm:p-8 md:p-12">
+  <div class="rounded-2xl border border-accent-lime/30 bg-bg-panel p-6 shadow-[0_0_40px_-12px] shadow-accent-lime/30 sm:p-8">
+    <h3 class="text-2xl sm:text-3xl">Running a track?</h3>
+    <p class="mt-3 text-ink-muted">
+      We'll reach out with pricing and how it works. No commitment.
+    </p>
+
+    <form class="mt-6 flex flex-col gap-4" method="POST" action="#">
+      <input
+        type="text"
+        name="track_name"
+        placeholder="Track name"
+        required
+        class="min-h-[3rem] bg-bg border border-ink-muted/30 focus:border-accent-lime focus:outline-none px-4 py-3 text-base text-ink placeholder:text-ink-muted"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+        class="min-h-[3rem] bg-bg border border-ink-muted/30 focus:border-accent-lime focus:outline-none px-4 py-3 text-base text-ink placeholder:text-ink-muted"
+      />
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone (optional)"
+        class="min-h-[3rem] bg-bg border border-ink-muted/30 focus:border-accent-lime focus:outline-none px-4 py-3 text-base text-ink placeholder:text-ink-muted"
+      />
+      <div class="grid grid-cols-2 gap-4">
+        <input
+          type="number"
+          name="kart_count"
+          placeholder="# of karts"
+          min="1"
+          required
+          class="min-h-[3rem] bg-bg border border-ink-muted/30 focus:border-accent-lime focus:outline-none px-4 py-3 text-base text-ink placeholder:text-ink-muted"
+        />
+        <select
+          name="kart_type"
+          required
+          class="min-h-[3rem] bg-bg border border-ink-muted/30 focus:border-accent-lime focus:outline-none px-4 py-3 text-base text-ink"
+        >
+          <option value="">Kart type</option>
+          <option value="gas">Gas</option>
+          <option value="electric">Electric</option>
+          <option value="both">Both</option>
+        </select>
+      </div>
+      <textarea
+        name="message"
+        placeholder="Tell us a bit about your track"
+        rows="4"
+        class="bg-bg border border-ink-muted/30 focus:border-accent-lime focus:outline-none px-4 py-3 text-base text-ink placeholder:text-ink-muted"
+      ></textarea>
+      <button
+        type="submit"
+        class="min-h-[3rem] bg-alert text-ink font-heading font-bold px-6 py-3 hover:opacity-90"
+      >
+        Send info
+      </button>
+    </form>
+  </div>
 </div>
 
 <script>
