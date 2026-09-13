@@ -1,6 +1,65 @@
 ---
 ---
 
+<div id="for-tracks" class="p-8 md:p-12">
+  <form
+    id="operator-interest-form"
+    class="flex flex-col gap-4"
+    method="POST"
+    action="/api/operator-interest"
+  >
+    {/* TODO: headline, subheading */}
+    <input
+      type="text"
+      name="track_name"
+      placeholder="Track name"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Phone (optional)"
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <select
+      name="kart_type"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink"
+    >
+      <option value="">Kart type</option>
+      <option value="gas">Gas</option>
+      <option value="electric">Electric</option>
+      <option value="both">Both</option>
+    </select>
+    <input
+      type="number"
+      name="kart_count"
+      placeholder="Number of karts"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <textarea
+      name="message"
+      placeholder="Anything else we should know? (optional)"
+      rows="3"
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    ></textarea>
+    <button
+      type="submit"
+      class="bg-alert text-ink font-heading font-bold px-6 py-3 hover:opacity-90"
+    >
+      Get In Touch
+    </button>
+    <p class="form-status text-sm" role="status" aria-live="polite"></p>
+  </form>
 <div id="for-tracks" class="p-6 sm:p-8 md:p-12">
   <div class="rounded-2xl border border-accent-lime/30 bg-bg-panel p-6 shadow-[0_0_40px_-12px] shadow-accent-lime/30 sm:p-8">
     <h3 class="text-2xl sm:text-3xl">Running a track?</h3>
@@ -64,3 +123,23 @@
     </form>
   </div>
 </div>
+
+<script>
+  const form = document.getElementById('operator-interest-form') as HTMLFormElement | null;
+  const status = form?.querySelector('.form-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!status) return;
+
+    status.textContent = 'Sending...';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      if (!res.ok) throw new Error('Request failed');
+      status.textContent = "Thanks — we'll reach out shortly.";
+      form.reset();
+    } catch {
+      status.textContent = 'Something went wrong. Please try again.';
+    }
+  });
+</script>

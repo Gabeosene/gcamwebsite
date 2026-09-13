@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Astro's Netlify adapter builds the API routes into a Netlify Function
+# automatically — no separate functions directory needed.
