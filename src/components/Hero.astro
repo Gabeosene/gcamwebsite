@@ -1,23 +1,59 @@
 ---
+interface Props {
+  headline?: string;
+  subheading?: string;
+  backgroundImage?: string;
+}
+
+const {
+  headline = 'See how fast you really went.',
+  subheading = 'G-CAM records everything. You get the proof. Tracks get customers who come back.',
+  backgroundImage,
+} = Astro.props;
 ---
 
-<section id="hero" class="relative bg-bg px-6 py-32 md:py-48 overflow-hidden">
-  <div class="mx-auto max-w-4xl">
-    <div class="space-y-6 md:space-y-8">
-      <h1 class="text-4xl md:text-6xl leading-tight font-heading font-bold text-ink">
-        Race Smart.<br />Win Bigger.
-      </h1>
-      <p class="text-lg md:text-xl text-ink-muted max-w-2xl leading-relaxed">
-        Real-time telemetry and AI coaching for go-kart racers. Data-driven performance that makes you faster.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 pt-4">
-        <a href="#for-racers" class="inline-flex items-center justify-center bg-accent text-bg px-8 py-3 font-heading font-bold hover:opacity-90 transition-opacity">
-          Notify Me
-        </a>
-        <a href="#for-tracks" class="inline-flex items-center justify-center border-2 border-accent text-accent px-8 py-3 font-heading font-bold hover:bg-accent hover:text-bg transition-colors">
-          Track Operators
-        </a>
+<section
+  id="hero"
+  class="relative overflow-hidden bg-bg px-6 py-20 sm:py-28 md:py-36"
+>
+  {
+    backgroundImage && (
+      <div class="absolute inset-0">
+        <img
+          src={backgroundImage}
+          alt=""
+          class="h-full w-full object-cover opacity-30"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-bg/40" />
       </div>
-    </div>
+    )
+  }
+
+  {/* Accent stripe */}
+  <div
+    class="absolute -right-16 top-0 h-full w-40 rotate-12 bg-accent/20 blur-2xl sm:w-56"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute -right-6 top-0 h-full w-1.5 rotate-12 bg-accent sm:w-2"
+    aria-hidden="true"
+  >
+  </div>
+
+  {/* Accent dot */}
+  <div
+    class="absolute left-6 top-10 h-2.5 w-2.5 rounded-full bg-accent-lime sm:h-3 sm:w-3"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-3xl">
+    <h1 class="text-4xl leading-tight tracking-tight sm:text-5xl md:text-6xl">
+      {headline}
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-ink-muted sm:text-xl">
+      {subheading}
+    </p>
   </div>
 </section>

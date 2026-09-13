@@ -1,86 +1,77 @@
 ---
+const racerSteps = [
+  { icon: '🏎️', text: 'Race your session with G-CAM on the kart' },
+  { icon: '📱', text: 'Finish, grab your phone' },
+  { icon: '📊', text: 'See your lap times, where you braked late, where you can improve' },
+];
+
+const trackSteps = [
+  { icon: '🔧', text: 'Install G-CAM (one per track or per kart, depends on tier)' },
+  { icon: '🎬', text: 'Every customer who races gets their data' },
+  { icon: '🔁', text: 'They want to race again to beat their times' },
+];
 ---
 
 <section id="how-it-works" class="bg-bg-panel px-6 py-20 md:py-28">
   <div class="mx-auto max-w-5xl">
-    <div class="mb-16 md:mb-20">
-      <h2 class="text-3xl md:text-4xl font-heading font-bold text-ink mb-4">
-        How It Works
-      </h2>
-      <p class="text-lg text-ink-muted max-w-2xl">
-        Two paths. One platform. Get real-time data or put telemetry in your karts.
+    <div class="max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl">How it works</h2>
+      <p class="mt-4 text-lg text-ink-muted">
+        One system, two payoffs: racers get proof, tracks get repeat business.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12">
-      <div class="space-y-6">
-        <div class="text-accent text-sm font-heading font-bold uppercase tracking-wider">
-          For Racers
-        </div>
-        <h3 class="text-2xl md:text-3xl font-heading font-bold text-ink">
-          Track Your Progress
-        </h3>
-        <p class="text-ink-muted leading-relaxed">
-          Connect your device. Get telemetry. See your lap times, racing lines, and performance metrics in real-time.
+    <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-0 md:divide-x md:divide-ink-muted/10">
+      <div class="md:pr-12">
+        <p class="font-heading text-sm font-bold uppercase tracking-wider text-accent">
+          For you (the racer)
         </p>
-        <div class="space-y-4 pt-4">
-          <div class="flex gap-3">
-            <div class="text-accent text-xl flex-shrink-0">→</div>
-            <div>
-              <p class="font-heading font-bold text-ink mb-1">Setup in minutes</p>
-              <p class="text-sm text-ink-muted">No complex equipment. Just your phone.</p>
-            </div>
-          </div>
-          <div class="flex gap-3">
-            <div class="text-accent text-xl flex-shrink-0">→</div>
-            <div>
-              <p class="font-heading font-bold text-ink mb-1">Race smarter</p>
-              <p class="text-sm text-ink-muted">Learn your weak spots. Improve fast.</p>
-            </div>
-          </div>
-          <div class="flex gap-3">
-            <div class="text-accent text-xl flex-shrink-0">→</div>
-            <div>
-              <p class="font-heading font-bold text-ink mb-1">Compete fairly</p>
-              <p class="text-sm text-ink-muted">Real data. No guessing.</p>
-            </div>
-          </div>
-        </div>
+        <ol class="mt-6 flex flex-col gap-6">
+          {
+            racerSteps.map((step, i) => (
+              <li class="flex items-start gap-4">
+                <span
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg text-xl"
+                  aria-hidden="true"
+                >
+                  {step.icon}
+                </span>
+                <span class="pt-2">
+                  <span class="mr-2 font-heading text-sm text-ink-muted">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {step.text}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
       </div>
 
-      <div class="space-y-6">
-        <div class="text-accent text-sm font-heading font-bold uppercase tracking-wider">
-          For Operators
-        </div>
-        <h3 class="text-2xl md:text-3xl font-heading font-bold text-ink">
-          Equip Your Fleet
-        </h3>
-        <p class="text-ink-muted leading-relaxed">
-          Install telemetry in your karts. Racers use our app to view their performance. You track fleet health.
+      <div class="md:pl-12">
+        <p class="font-heading text-sm font-bold uppercase tracking-wider text-accent-lime">
+          For your track
         </p>
-        <div class="space-y-4 pt-4">
-          <div class="flex gap-3">
-            <div class="text-accent text-xl flex-shrink-0">→</div>
-            <div>
-              <p class="font-heading font-bold text-ink mb-1">Attract serious racers</p>
-              <p class="text-sm text-ink-muted">Premium experience. Competitive edge.</p>
-            </div>
-          </div>
-          <div class="flex gap-3">
-            <div class="text-accent text-xl flex-shrink-0">→</div>
-            <div>
-              <p class="font-heading font-bold text-ink mb-1">Maintain your fleet</p>
-              <p class="text-sm text-ink-muted">Predictive alerts. Prevent breakdowns.</p>
-            </div>
-          </div>
-          <div class="flex gap-3">
-            <div class="text-accent text-xl flex-shrink-0">→</div>
-            <div>
-              <p class="font-heading font-bold text-ink mb-1">Simple integration</p>
-              <p class="text-sm text-ink-muted">Works with your existing karts.</p>
-            </div>
-          </div>
-        </div>
+        <ol class="mt-6 flex flex-col gap-6">
+          {
+            trackSteps.map((step, i) => (
+              <li class="flex items-start gap-4">
+                <span
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg text-xl"
+                  aria-hidden="true"
+                >
+                  {step.icon}
+                </span>
+                <span class="pt-2">
+                  <span class="mr-2 font-heading text-sm text-ink-muted">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {step.text}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
       </div>
     </div>
   </div>
