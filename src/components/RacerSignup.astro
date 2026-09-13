@@ -1,35 +1,44 @@
 ---
 ---
 
-<div id="for-racers" class="p-8 md:p-12">
-  <form class="flex flex-col gap-4" method="POST" action="#">
-    {/* TODO: headline, subheading */}
-    {/* Fields: Email, Location/Zip, Home track (optional) */}
-    <input
-      type="email"
-      name="email"
-      placeholder="Email"
-      required
-      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <input
-      type="text"
-      name="location"
-      placeholder="Location / Zip"
-      required
-      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <input
-      type="text"
-      name="home_track"
-      placeholder="Home track (optional)"
-      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <button
-      type="submit"
-      class="bg-accent text-bg font-heading font-bold px-6 py-3 hover:opacity-90"
-    >
-      Notify Me
-    </button>
-  </form>
+<div id="for-racers" class="p-6 sm:p-8 md:p-12">
+  <div class="rounded-2xl border border-accent/30 bg-bg p-6 shadow-[0_0_40px_-12px] shadow-accent/30 sm:p-8">
+    <h3 class="text-2xl sm:text-3xl">
+      Get notified when G-CAM comes to a track near you
+    </h3>
+    <p class="mt-3 text-ink-muted">
+      We'll ping you when G-CAM launches at a track close to you. No spam.
+    </p>
+
+    <form class="mt-6 flex flex-col gap-4" method="POST" action="#">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+        class="min-h-[3rem] bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-base text-ink placeholder:text-ink-muted"
+      />
+      <input
+        type="text"
+        name="location"
+        placeholder="Zip code or city"
+        required
+        class="min-h-[3rem] bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-base text-ink placeholder:text-ink-muted"
+      />
+      <label class="flex items-start gap-3 text-sm text-ink-muted">
+        <input
+          type="checkbox"
+          name="racing_tips"
+          class="mt-0.5 h-5 w-5 shrink-0 accent-accent"
+        />
+        Notify me about racing tips too
+      </label>
+      <button
+        type="submit"
+        class="min-h-[3rem] bg-accent text-bg font-heading font-bold px-6 py-3 hover:opacity-90"
+      >
+        Notify me
+      </button>
+    </form>
+  </div>
 </div>
