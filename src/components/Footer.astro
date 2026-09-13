@@ -1,8 +1,14 @@
 ---
+const year = new Date().getFullYear();
 ---
 
 <footer class="bg-bg px-6 py-10 border-t border-ink-muted/10">
-  <div class="mx-auto max-w-5xl flex flex-col md:flex-row items-center justify-between gap-6">
-    {/* TODO: logo/wordmark, nav links, contact email, social */}
+  <div class="mx-auto max-w-5xl flex flex-col items-center gap-4 text-sm text-ink-muted md:flex-row md:justify-between">
+    <p>&copy; {year} G-CAM. All rights reserved.</p>
+
+    <nav class="flex items-center gap-6">
+      <a href="mailto:contact@g-cam.com" class="hover:text-ink">contact@g-cam.com</a>
+      <a href="/privacy" class="hover:text-ink">Privacy</a>
+    </nav>
   </div>
 </footer>
