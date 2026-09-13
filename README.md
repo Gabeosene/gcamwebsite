@@ -45,9 +45,11 @@ notification via [Resend](https://resend.com) (`src/lib/notify.ts`). Set up:
    - `NOTIFY_FROM_EMAIL` — a verified sender, e.g. `notify@g-cam.example.com`
    - `NOTIFY_TO_EMAIL` — the inbox that should receive signups
 
-Until those variables are set, submissions are accepted and logged to the
-function's console output instead of emailed, so the forms work in dev
-without any setup.
+Until those variables are set, submissions fail with a graceful error
+message on the form (the attempt is still logged to the function's console
+output) rather than silently reporting success — this keeps a misconfigured
+deploy from quietly swallowing real signups. Set the three variables above
+(even to sandbox/test values) to exercise the full happy path locally.
 
 Swapping in a different email provider (SMTP, SendGrid, Postmark, etc.) or
 Netlify Forms instead just means changing `src/lib/notify.ts` — the two API
