@@ -1,0 +1,49 @@
+---
+---
+
+<div id="for-tracks" class="p-8 md:p-12">
+  <form class="flex flex-col gap-4" method="POST" action="#">
+    {/* TODO: headline, subheading */}
+    {/* Fields: Track name, # of karts, kart type, interest level */}
+    <input
+      type="text"
+      name="track_name"
+      placeholder="Track name"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <input
+      type="number"
+      name="kart_count"
+      placeholder="Number of karts"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <select
+      name="kart_type"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink"
+    >
+      <option value="">Kart type</option>
+      <option value="gas">Gas</option>
+      <option value="electric">Electric</option>
+      <option value="both">Both</option>
+    </select>
+    <select
+      name="interest_level"
+      required
+      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink"
+    >
+      <option value="">Interest level</option>
+      <option value="curious">Just curious</option>
+      <option value="demo">Want a demo</option>
+      <option value="pricing">Ready to talk pricing</option>
+    </select>
+    <button
+      type="submit"
+      class="bg-alert text-ink font-heading font-bold px-6 py-3 hover:opacity-90"
+    >
+      Get In Touch
+    </button>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+---
+---
+
+<div id="for-racers" class="p-8 md:p-12">
+  <form class="flex flex-col gap-4" method="POST" action="#">
+    {/* TODO: headline, subheading */}
+    {/* Fields: Email, Location/Zip, Home track (optional) */}
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      required
+      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <input
+      type="text"
+      name="location"
+      placeholder="Location / Zip"
+      required
+      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <input
+      type="text"
+      name="home_track"
+      placeholder="Home track (optional)"
+      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
+    />
+    <button
+      type="submit"
+      class="bg-accent text-bg font-heading font-bold px-6 py-3 hover:opacity-90"
+    >
+      Notify Me
+    </button>
+  </form>
+</div>

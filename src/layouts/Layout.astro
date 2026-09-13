@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'G-CAM — See Every Lap. Beat Your Best.',
+  description = 'Mounted on the kart, it films your run and breaks down your lap times, G-forces, throttle and braking — the second you cross the line.',
+} = Astro.props;
+
+// TODO: replace /og-image.svg with a rendered 1200x630 PNG before launch —
+// most social platforms don't render SVG for og:image.
+const ogImage = new URL('/og-image.svg', Astro.site ?? Astro.url);
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-bg text-ink">
+    <slot />
+  </body>
+</html>
