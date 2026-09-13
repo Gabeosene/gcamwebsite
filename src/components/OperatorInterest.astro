@@ -1,49 +1,114 @@
 ---
 ---
 
-<div id="for-tracks" class="p-8 md:p-12">
-  <form class="flex flex-col gap-4" method="POST" action="#">
-    {/* TODO: headline, subheading */}
-    {/* Fields: Track name, # of karts, kart type, interest level */}
-    <input
-      type="text"
-      name="track_name"
-      placeholder="Track name"
-      required
-      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <input
-      type="number"
-      name="kart_count"
-      placeholder="Number of karts"
-      required
-      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <select
-      name="kart_type"
-      required
-      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink"
-    >
-      <option value="">Kart type</option>
-      <option value="gas">Gas</option>
-      <option value="electric">Electric</option>
-      <option value="both">Both</option>
-    </select>
-    <select
-      name="interest_level"
-      required
-      class="bg-bg-panel border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink"
-    >
-      <option value="">Interest level</option>
-      <option value="curious">Just curious</option>
-      <option value="demo">Want a demo</option>
-      <option value="pricing">Ready to talk pricing</option>
-    </select>
-    <button
-      type="submit"
-      class="bg-alert text-ink font-heading font-bold px-6 py-3 hover:opacity-90"
-    >
-      Get In Touch
-    </button>
-  </form>
+<div id="for-tracks" class="bg-bg-panel px-6 md:px-12 py-16 md:py-20">
+  <div class="mx-auto max-w-2xl">
+    <h2 class="text-2xl md:text-3xl font-heading font-bold text-ink mb-2">
+      Equip Your Fleet
+    </h2>
+    <p class="text-ink-muted mb-8 md:mb-12">
+      Bring G-CAM to your track. Let's talk about making your racers faster.
+    </p>
+
+    <form class="flex flex-col gap-6" method="POST" action="#">
+      <div>
+        <label for="track-name" class="block text-sm font-heading font-bold text-ink mb-2">
+          Track Name
+        </label>
+        <input
+          id="track-name"
+          type="text"
+          name="track_name"
+          placeholder="Your track name"
+          required
+          class="w-full bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 px-4 py-3 text-ink placeholder:text-ink-muted min-h-11 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label for="track-email" class="block text-sm font-heading font-bold text-ink mb-2">
+          Email
+        </label>
+        <input
+          id="track-email"
+          type="email"
+          name="email"
+          placeholder="your@track.com"
+          required
+          class="w-full bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 px-4 py-3 text-ink placeholder:text-ink-muted min-h-11 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label for="track-phone" class="block text-sm font-heading font-bold text-ink mb-2">
+          Phone
+        </label>
+        <input
+          id="track-phone"
+          type="tel"
+          name="phone"
+          placeholder="(555) 123-4567"
+          required
+          class="w-full bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 px-4 py-3 text-ink placeholder:text-ink-muted min-h-11 transition-colors"
+        />
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label for="kart-count" class="block text-sm font-heading font-bold text-ink mb-2">
+            Number of Karts
+          </label>
+          <input
+            id="kart-count"
+            type="number"
+            name="kart_count"
+            placeholder="e.g. 24"
+            required
+            class="w-full bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 px-4 py-3 text-ink placeholder:text-ink-muted min-h-11 transition-colors"
+          />
+        </div>
+
+        <div>
+          <label for="kart-type" class="block text-sm font-heading font-bold text-ink mb-2">
+            Kart Type
+          </label>
+          <select
+            id="kart-type"
+            name="kart_type"
+            required
+            class="w-full bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 px-4 py-3 text-ink min-h-11 transition-colors appearance-none"
+          >
+            <option value="">Select type</option>
+            <option value="gas">Gas</option>
+            <option value="electric">Electric</option>
+            <option value="both">Both</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="track-message" class="block text-sm font-heading font-bold text-ink mb-2">
+          Tell Us More <span class="text-ink-muted">(optional)</span>
+        </label>
+        <textarea
+          id="track-message"
+          name="message"
+          placeholder="Any questions or details about your track?"
+          rows={4}
+          class="w-full bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent/30 px-4 py-3 text-ink placeholder:text-ink-muted min-h-24 transition-colors resize-none"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="bg-alert text-ink font-heading font-bold px-8 py-3 min-h-12 hover:opacity-90 transition-opacity mt-2"
+      >
+        Get In Touch
+      </button>
+    </form>
+
+    <p class="text-xs text-ink-muted mt-6">
+      We'll reach out within 24 hours to discuss G-CAM for your track.
+    </p>
+  </div>
 </div>
