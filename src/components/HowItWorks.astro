@@ -1,8 +1,78 @@
 ---
+const racerSteps = [
+  { icon: '🏎️', text: 'Race your session with G-CAM on the kart' },
+  { icon: '📱', text: 'Finish, grab your phone' },
+  { icon: '📊', text: 'See your lap times, where you braked late, where you can improve' },
+];
+
+const trackSteps = [
+  { icon: '🔧', text: 'Install G-CAM (one per track or per kart, depends on tier)' },
+  { icon: '🎬', text: 'Every customer who races gets their data' },
+  { icon: '🔁', text: 'They want to race again to beat their times' },
+];
 ---
 
 <section id="how-it-works" class="bg-bg-panel px-6 py-20 md:py-28">
   <div class="mx-auto max-w-5xl">
-    {/* TODO: headline, subheading, three visuals (racer x2, operator x1) */}
+    <div class="max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl">How it works</h2>
+      <p class="mt-4 text-lg text-ink-muted">
+        One system, two payoffs: racers get proof, tracks get repeat business.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-0 md:divide-x md:divide-ink-muted/10">
+      <div class="md:pr-12">
+        <p class="font-heading text-sm font-bold uppercase tracking-wider text-accent">
+          For you (the racer)
+        </p>
+        <ol class="mt-6 flex flex-col gap-6">
+          {
+            racerSteps.map((step, i) => (
+              <li class="flex items-start gap-4">
+                <span
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg text-xl"
+                  aria-hidden="true"
+                >
+                  {step.icon}
+                </span>
+                <span class="pt-2">
+                  <span class="mr-2 font-heading text-sm text-ink-muted">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {step.text}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="md:pl-12">
+        <p class="font-heading text-sm font-bold uppercase tracking-wider text-accent-lime">
+          For your track
+        </p>
+        <ol class="mt-6 flex flex-col gap-6">
+          {
+            trackSteps.map((step, i) => (
+              <li class="flex items-start gap-4">
+                <span
+                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg text-xl"
+                  aria-hidden="true"
+                >
+                  {step.icon}
+                </span>
+                <span class="pt-2">
+                  <span class="mr-2 font-heading text-sm text-ink-muted">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {step.text}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </div>
   </div>
 </section>
