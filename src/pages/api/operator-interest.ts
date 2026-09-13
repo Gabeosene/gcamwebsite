@@ -15,14 +15,22 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  await sendNotificationEmail('New operator interest', {
-    'Track name': trackName,
-    Email: email,
-    Phone: data.get('phone')?.toString().trim() || '(not provided)',
-    Karts: data.get('kart_count')?.toString().trim() || '(not provided)',
-    'Kart type': data.get('kart_type')?.toString().trim() || '(not provided)',
-    Message: data.get('message')?.toString().trim() || '(not provided)',
-  });
+  try {
+    await sendNotificationEmail('New operator interest', {
+      'Track name': trackName,
+      Email: email,
+      Phone: data.get('phone')?.toString().trim() || '(not provided)',
+      Karts: data.get('kart_count')?.toString().trim() || '(not provided)',
+      'Kart type': data.get('kart_type')?.toString().trim() || '(not provided)',
+      Message: data.get('message')?.toString().trim() || '(not provided)',
+    });
+  } catch (err) {
+    console.error('[operator-interest] Failed to send notification', err);
+    return new Response(
+      JSON.stringify({ error: 'Something went wrong on our end. Please try again in a moment.' }),
+      { status: 502, headers: { 'Content-Type': 'application/json' } },
+    );
+  }
 
   return new Response(JSON.stringify({ ok: true }), {
     status: 200,

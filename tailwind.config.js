@@ -14,7 +14,7 @@ export default {
           cyan: '#00F0FF',
           lime: '#D4FF00',
         },
-        alert: '#FF3E3E', // racing red, CTAs only
+        alert: '#FF3E3E', // racing red, reserved for real errors/warnings — not CTAs
         ink: {
           DEFAULT: '#F5F5F5', // primary text
           muted: '#8A93A3',   // muted text

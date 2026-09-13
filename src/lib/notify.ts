@@ -8,8 +8,8 @@ export async function sendNotificationEmail(subject: string, lines: Record<strin
   const from = import.meta.env.NOTIFY_FROM_EMAIL;
 
   if (!apiKey || !to || !from) {
-    console.warn(`[notify] Email not sent (missing env vars) — ${subject}`, lines);
-    return;
+    console.error(`[notify] Email not sent (missing RESEND_API_KEY/NOTIFY_TO_EMAIL/NOTIFY_FROM_EMAIL) — ${subject}`, lines);
+    throw new Error('Email service is not configured.');
   }
 
   const text = Object.entries(lines)

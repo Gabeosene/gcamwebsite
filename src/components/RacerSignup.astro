@@ -1,42 +1,6 @@
 ---
 ---
 
-<div id="for-racers" class="p-8 md:p-12">
-  <form
-    id="racer-signup-form"
-    class="flex flex-col gap-4"
-    method="POST"
-    action="/api/racer-signup"
-  >
-    {/* TODO: headline, subheading */}
-    <input
-      type="email"
-      name="email"
-      placeholder="Email"
-      required
-      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <input
-      type="text"
-      name="location"
-      placeholder="Location / Zip"
-      required
-      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <input
-      type="text"
-      name="home_track"
-      placeholder="Home track (optional)"
-      class="bg-bg border border-ink-muted/30 focus:border-accent focus:outline-none px-4 py-3 text-ink placeholder:text-ink-muted"
-    />
-    <button
-      type="submit"
-      class="bg-accent text-bg font-heading font-bold px-6 py-3 hover:opacity-90"
-    >
-      Notify Me
-    </button>
-    <p class="form-status text-sm" role="status" aria-live="polite"></p>
-  </form>
 <div id="for-racers" class="p-6 sm:p-8 md:p-12">
   <div class="rounded-2xl border border-accent/30 bg-bg p-6 shadow-[0_0_40px_-12px] shadow-accent/30 sm:p-8">
     <h3 class="text-2xl sm:text-3xl">
@@ -46,7 +10,12 @@
       We'll ping you when G-CAM launches at a track close to you. No spam.
     </p>
 
-    <form class="mt-6 flex flex-col gap-4" method="POST" action="#">
+    <form
+      id="racer-signup-form"
+      class="mt-6 flex flex-col gap-4"
+      method="POST"
+      action="/api/racer-signup"
+    >
       <input
         type="email"
         name="email"
@@ -75,6 +44,7 @@
       >
         Notify me
       </button>
+      <p class="form-status text-sm" role="status" aria-live="polite"></p>
     </form>
   </div>
 </div>
